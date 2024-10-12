@@ -1,0 +1,158 @@
+<!-- <!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Nedir?</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>COVID-19 Bilgilendirme</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Ana Sayfa</a></li>
+                    <li><a href="#">COVID-19 Nedir?</a></li>
+                    <li><a href="#">Belirtiler</a></li>
+                    <li><a href="#">Korunma Yolları</a></li>
+                    <li><a href="#">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <section class="content">
+                <h2>COVID-19 Nedir?</h2>
+                <p>Yeni Koronavirüs Hastalığı (COVID-19), ilk olarak Çin'in Vuhan Eyaleti'nde Aralık ayının sonlarında solunum yolu belirtileri (ateş, öksürük, nefes darlığı) gösteren bir grup hastada yapılan araştırmalar sonucunda 13 Ocak 2020'de tanımlanan bir virüstür.</p>
+                <p>Sağlık bakanlığı ve ilgili otoriteler tarafından yapılan çalışmalar ile hastalığın yayılımı engellenmeye çalışılmaktadır.</p>
+                <div class="image-container">
+                    <img src="https://covid19.saglik.gov.tr/uploads/images/general/covid_home_img.png" alt="COVID-19" class="circle">
+                </div>
+                <h3>Belirtiler Nelerdir?</h3>
+                <p>En yaygın belirtiler arasında ateş, öksürük ve nefes darlığı yer almaktadır. Bu belirtiler hafif başlayıp, kademeli olarak şiddetlenebilir.</p>
+                <div class="image-container">
+                    <img src="/mnt/data/image.png" alt="COVID-19 Belirtileri" class="triangle">
+                </div>
+                <h3>Nasıl Bulaşır?</h3>
+                <p>COVID-19, enfekte bireylerin öksürük ve hapşırık yoluyla yaydığı damlacıklar ile bulaşmaktadır. Ayrıca virüs yüzeylerde de birkaç saatten birkaç güne kadar yaşayabilmektedir.</p>
+                <div class="image-container">
+                    <img src="https://example.com/another-image.png" alt="Bulaşma Yolları" class="rounded-square">
+                </div>
+                <h3>Korunma Yolları</h3>
+                <p>COVID-19'dan korunmak için sosyal mesafeye dikkat etmek, maske takmak ve elleri sık sık yıkamak gerekmektedir.</p>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>Adres: Bilkent Yerleşkesi, Üniversiteler Mahallesi Dumlupınar Bulvarı No:6001 Çankaya/Ankara</p>
+            <p>Telefon: +90 (312) 585 1000</p>
+            <p>&copy; 2024 Sağlık Bakanlığı. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COVID Test Sonucu Öğren</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #2AB3A6; /* Su yeşili rengi */
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+    .images-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .image-wrapper {
+      flex: 1 1 45%;
+      max-width: 45%;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      max-height: 300px; /* Yükseklik sınırlaması eklendi */
+      border: 1px solid #ccc;
+      background-color: #fff;
+      display: block;
+      margin: 0 auto;
+    }
+    button {
+      background-color: #2AB3A6; /* Su yeşili rengi */
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    input[type="file"] {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+    }
+    h3 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Test Sonucu Öğren</h1>
+  </div>
+  <div class="container">
+    <h2>{{ title }}</h2>
+    <input type="file" id="fileInput" (change)="onFileSelected($event)" required>
+    <button (click)="onUpload()">Yükle</button>
+  </div>
+  <div class="images-container">
+    <div class="image-wrapper">
+      <h3>Orijinal Görüntü</h3>
+      <img *ngIf="imageUrl" [src]="imageUrl" alt="Orijinal Görüntü">
+    </div>
+    <div class="image-wrapper">
+      <h3>Sonuç Görüntüsü</h3>
+      <img *ngIf="detectedImageUrl" [src]="detectedImageUrl" alt="Sonuç Görüntüsü">
+    </div>
+  </div>
+
+  <!-- <div class="image-container">
+    <img src="assets/img/maske.png" alt="COVID-19" class="rounded-square">
+</div> -->
+  <!-- <footer>
+    <div class="container">
+        <p>Adres: Gazi Üniversitesi Yenimahalle/Ankara</p>
+        <p>Telefon: +90 (312) 000 00 00</p>
+        <p>&copy; 2024 Gel Sonucunu Öğren. Tüm hakları saklıdır.</p>
+    </div>
+</footer> -->
+</body>
+</html>

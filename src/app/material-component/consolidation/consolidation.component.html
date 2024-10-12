@@ -1,0 +1,102 @@
+<!-- ============================================================== -->
+<!-- Konsolidasyon ile ilgili bilgiler -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-12">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Konsolidasyon: Temel Bilgiler</mat-card-title>
+                <mat-list role="list">
+                    <mat-list-item role="listitem">Konsolidasyon, akciğer dokusunun sıvı veya katı maddelerle dolması durumudur.</mat-list-item>
+                    <mat-list-item role="listitem">Genellikle öksürük, nefes darlığı ve ateş gibi semptomlarla kendini gösterir.</mat-list-item>
+                    <mat-list-item role="listitem">Tedavi edilmediğinde ciddi solunum problemlerine neden olabilir ve zamanında müdahale önemlidir.</mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Konsolidasyon: Semptomlar ve Tedavi -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-lg-6">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Konsolidasyon: Semptomlar</mat-card-title>
+                <mat-card-subtitle>Konsolidasyon, akciğer dokusunun sıvı veya katı maddelerle dolması durumudur.</mat-card-subtitle>
+                <mat-list>
+                    <mat-list-item *ngFor="let symptom of consolidationSymptoms">
+                        {{symptom}}
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-6">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Konsolidasyon: Tedavi Seçenekleri</mat-card-title>
+                <mat-card-subtitle>Konsolidasyon tedavi edilmediğinde ciddi solunum problemlerine neden olabilir, bu nedenle zamanında müdahale önemlidir.</mat-card-subtitle>
+                <mat-list>
+                    <mat-list-item *ngFor="let treatment of consolidationTreatments">
+                        <h3 matListItemTitle>{{treatment.name}}</h3>
+                        <p matListItemLine>{{treatment.description}}</p>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Hangi Branşlar İlgilenir? -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-12">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Konsolidasyon ile İlgilenen Branşlar</mat-card-title>
+                <mat-card-subtitle>Konsolidasyon teşhisi, tedavisi ve takibi için çeşitli tıp branşları devreye girebilir.</mat-card-subtitle>
+                <mat-list>
+                    <mat-list-item *ngFor="let specialty of medicalSpecialties">
+                        <div matListItemTitle>{{specialty}}</div>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <mat-card>
+            <mat-card-content>
+                <div class="d-flex flex-wrap">
+                    <div>
+                        <mat-card-title>Hastalık İstatistikleri</mat-card-title>
+                        <mat-card-subtitle>Konsolidasyon Hastalığı Üzerine Veriler</mat-card-subtitle>
+                    </div>
+                </div>
+                <style>
+                    .list-inline h6 {
+                        font-size: 0.8em; /* Yazı boyutunu küçültmek için */
+                    }
+                </style>
+                <div>
+                    <apx-chart
+                        [series]="chartOptions.series"
+                        [chart]="chartOptions.chart"
+                        [dataLabels]="chartOptions.dataLabels"
+                        [plotOptions]="chartOptions.plotOptions"
+                        [yaxis]="chartOptions.yaxis"
+                        [legend]="chartOptions.legend"
+                        [fill]="chartOptions.fill"
+                        [stroke]="chartOptions.stroke"
+                        [tooltip]="chartOptions.tooltip"
+                        [xaxis]="chartOptions.xaxis"
+                        [grid]="chartOptions.grid"
+                    >
+                    </apx-chart>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+<!-- ============================================================== -->
+<!-- Other Lesion ile ilgili bilgiler -->
+<!-- ============================================================== -->
+<div class="row">
+  <div class="col-12">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>Other Lesion: Temel Bilgiler</mat-card-title>
+              <mat-list role="list">
+                  <mat-list-item role="listitem">Diğer lezyonlar, akciğerlerde görülen ancak nodül, kitle veya başka bir belirgin yapı oluşturmayan anormal bölgelerdir.</mat-list-item>
+                  <mat-list-item role="listitem">Bazı diğer lezyonlar benign olabilirken, bazıları ciddi sağlık sorunlarını işaret edebilir ve tedavi gerektirebilir.</mat-list-item>
+                  <mat-list-item role="listitem">Diğer lezyonların teşhisi genellikle görüntüleme testleri ve biyopsi ile yapılır.</mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+<!-- ============================================================== -->
+<!-- Other Lesion: Semptomlar ve Tedavi -->
+<!-- ============================================================== -->
+<div class="row">
+  <div class="col-lg-6">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>Other Lesion: Semptomlar</mat-card-title>
+              <mat-card-subtitle>Diğer lezyonlar genellikle semptomlara neden olmaz, ancak bazen öksürük, nefes darlığı veya göğüs ağrısı gibi belirtiler görülebilir.</mat-card-subtitle>
+              <mat-list>
+                  <mat-list-item *ngFor="let symptom of otherLesionSymptoms">
+                      {{symptom}}
+                  </mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+  <div class="col-lg-6">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>Other Lesion: Tedavi Seçenekleri</mat-card-title>
+              <mat-card-subtitle>Diğer lezyonlar, boyutlarına, konumlarına ve potansiyel sağlık risklerine bağlı olarak takip edilebilir veya tedavi edilebilir.</mat-card-subtitle>
+              <mat-list>
+                  <mat-list-item *ngFor="let treatment of otherLesionTreatments">
+                      <h3 matListItemTitle>{{treatment.name}}</h3>
+                      <p matListItemLine>{{treatment.description}}</p>
+                  </mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+<!-- ============================================================== -->
+<!-- Hangi Branşlar İlgilenir? -->
+<!-- ============================================================== -->
+<div class="row">
+  <div class="col-12">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>Other Lesion ile İlgilenen Branşlar</mat-card-title>
+              <mat-card-subtitle>Diğer lezyonların teşhisi ve tedavisi için birçok tıp branşı devreye girebilir.</mat-card-subtitle>
+              <mat-list>
+                  <mat-list-item *ngFor="let specialty of medicalSpecialties">
+                      <div matListItemTitle>{{specialty}}</div>
+                  </mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+      <mat-card>
+          <mat-card-content>
+              <div class="d-flex flex-wrap">
+                  <div>
+                      <mat-card-title>Hastalık İstatistikleri</mat-card-title>
+                      <mat-card-subtitle>Other Lesion Hastalığı Üzerine Veriler</mat-card-subtitle>
+                  </div>
+              </div>
+              <style>
+                  .list-inline h6 {
+                      font-size: 0.8em; /* Yazı boyutunu küçültmek için */
+                  }
+              </style>
+              <div>
+                  <apx-chart
+                      [series]="chartOptions.series"
+                      [chart]="chartOptions.chart"
+                      [dataLabels]="chartOptions.dataLabels"
+                      [plotOptions]="chartOptions.plotOptions"
+                      [yaxis]="chartOptions.yaxis"
+                      [legend]="chartOptions.legend"
+                      [fill]="chartOptions.fill"
+                      [stroke]="chartOptions.stroke"
+                      [tooltip]="chartOptions.tooltip"
+                      [xaxis]="chartOptions.xaxis"
+                      [grid]="chartOptions.grid"
+                  >
+                  </apx-chart>
+              </div>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>

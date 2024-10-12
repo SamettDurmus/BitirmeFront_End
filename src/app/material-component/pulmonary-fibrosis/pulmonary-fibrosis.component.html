@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-12">
+    <mat-card>
+      <mat-card-content>
+        <mat-card-title>Pulmonary Fibrosis: Temel Bilgiler</mat-card-title>
+        <mat-list role="list">
+          <mat-list-item role="listitem">Pulmoner fibrozis, akciğer dokusunun skarlaşması ve kalınlaşmasıyla karakterize kronik bir akciğer hastalığıdır.</mat-list-item>
+          <mat-list-item role="listitem">Belirtiler arasında nefes darlığı, kronik öksürük, yorgunluk ve göğüs ağrısı bulunur.</mat-list-item>
+          <mat-list-item role="listitem">Pulmoner fibrozisin nedeni bilinmemekle birlikte, çeşitli faktörlerin (çevresel toksinler, enfeksiyonlar, genetik faktörler vb.) etkisi olabilir.</mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+    <mat-card>
+      <mat-card-content>
+        <mat-card-title>Pulmonary Fibrosis: Semptomlar</mat-card-title>
+        <mat-card-subtitle>Pulmoner fibrozis, akciğer dokusunun skarlaşması ve kalınlaşmasıyla karakterize kronik bir akciğer hastalığıdır.</mat-card-subtitle>
+        <mat-list>
+          <mat-list-item *ngFor="let symptom of symptoms">
+            {{ symptom }}
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="col-lg-6">
+    <mat-card>
+      <mat-card-content>
+        <mat-card-title>Pulmonary Fibrosis: Tedavi Seçenekleri</mat-card-title>
+        <mat-card-subtitle>Pulmoner fibrozis tedavisi semptomları hafifletmeyi, hastalığın ilerlemesini yavaşlatmayı ve yaşam kalitesini artırmayı amaçlar.</mat-card-subtitle>
+        <mat-list>
+          <mat-list-item *ngFor="let treatment of treatments">
+            <h3 matListItemTitle>{{ treatment.name }}</h3>
+            <p matListItemLine>{{ treatment.description }}</p>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <mat-card>
+      <mat-card-content>
+        <mat-card-title>Pulmonary Fibrosis ile İlgilenen Branşlar</mat-card-title>
+        <mat-card-subtitle>Pulmoner fibrozis tedavisi için birçok tıp branşı devreye girebilir.</mat-card-subtitle>
+        <mat-list>
+          <mat-list-item *ngFor="let specialty of medicalSpecialties">
+            <div matListItemTitle>{{ specialty }}</div>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <mat-card>
+      <mat-card-content>
+        <div class="d-flex flex-wrap">
+          <div>
+            <mat-card-title>Hastalık İstatistikleri</mat-card-title>
+            <mat-card-subtitle>Pulmonary Fibrosis Hastalığı Üzerine Veriler</mat-card-subtitle>
+          </div>
+        </div>
+        <div>
+          <apx-chart
+            [series]="chartOptions.series"
+            [chart]="chartOptions.chart"
+            [dataLabels]="chartOptions.dataLabels"
+            [plotOptions]="chartOptions.plotOptions"
+            [yaxis]="chartOptions.yaxis"
+            [legend]="chartOptions.legend"
+            [fill]="chartOptions.fill"
+            [stroke]="chartOptions.stroke"
+            [tooltip]="chartOptions.tooltip"
+            [xaxis]="chartOptions.xaxis"
+            [grid]="chartOptions.grid"
+          >
+          </apx-chart>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+<!-- ============================================================== -->
+<!-- Pleural Effusion ile ilgili bilgiler -->
+<!-- ============================================================== -->
+<div class="row">
+  <div class="col-12">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>Pleural Effusion: Temel Bilgiler</mat-card-title>
+              <mat-list role="list">
+                  <mat-list-item role="listitem">Plevral efüzyon, akciğerlerin dışındaki zarların arasındaki boşlukta biriken fazla sıvıdır.</mat-list-item>
+                  <mat-list-item role="listitem">Plevral efüzyon, birçok farklı nedenle oluşabilir, en yaygın nedenler arasında enfeksiyonlar, kalp yetmezliği ve kanser bulunur.</mat-list-item>
+                  <mat-list-item role="listitem">Semptomlar arasında nefes darlığı, göğüs ağrısı veya batma hissi, öksürük, ateş ve halsizlik yer alabilir.</mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+<!-- ============================================================== -->
+<!-- Pleural Effusion: Semptomlar ve Tedavi -->
+<!-- ============================================================== -->
+<div class="row">
+  <div class="col-lg-6">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>Pleural Effusion: Semptomlar</mat-card-title>
+              <mat-card-subtitle>Plevral efüzyon genellikle semptomlara neden olur ve aşağıdakileri içerebilir:</mat-card-subtitle>
+              <mat-list>
+                  <mat-list-item *ngFor="let symptom of pleuralEffusionSymptoms">
+                      {{symptom}}
+                  </mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+  <div class="col-lg-6">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>Pleural Effusion: Tedavi Seçenekleri</mat-card-title>
+              <mat-card-subtitle>Plevral efüzyonun tedavisi, altta yatan nedenlerine bağlı olarak değişir ve aşağıdaki tedavi seçenekleri arasında bulunabilir:</mat-card-subtitle>
+              <mat-list>
+                  <mat-list-item *ngFor="let treatment of pleuralEffusionTreatments">
+                      <h3 matListItemTitle>{{treatment.name}}</h3>
+                      <p matListItemLine>{{treatment.description}}</p>
+                  </mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+<!-- ============================================================== -->
+<!-- Hangi Branşlar İlgilenir? -->
+<!-- ============================================================== -->
+<div class="row">
+  <div class="col-12">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>Pleural Effusion ile İlgilenen Branşlar</mat-card-title>
+              <mat-card-subtitle>Plevral efüzyonun teşhisi ve tedavisi için birçok tıp branşı devreye girebilir:</mat-card-subtitle>
+              <mat-list>
+                  <mat-list-item *ngFor="let specialty of medicalSpecialties">
+                      <div matListItemTitle>{{specialty}}</div>
+                  </mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+      <mat-card>
+          <mat-card-content>
+              <div class="d-flex flex-wrap">
+                  <div>
+                      <mat-card-title>Hastalık İstatistikleri</mat-card-title>
+                      <mat-card-subtitle>Pleural Effusion Hastalığı Üzerine Veriler</mat-card-subtitle>
+                  </div>
+              </div>
+              <style>
+                  .list-inline h6 {
+                      font-size: 0.8em; /* Yazı boyutunu küçültmek için */
+                  }
+              </style>
+              <div>
+                  <apx-chart
+                      [series]="chartOptions.series"
+                      [chart]="chartOptions.chart"
+                      [dataLabels]="chartOptions.dataLabels"
+                      [plotOptions]="chartOptions.plotOptions"
+                      [yaxis]="chartOptions.yaxis"
+                      [legend]="chartOptions.legend"
+                      [fill]="chartOptions.fill"
+                      [stroke]="chartOptions.stroke"
+                      [tooltip]="chartOptions.tooltip"
+                      [xaxis]="chartOptions.xaxis"
+                      [grid]="chartOptions.grid"
+                  >
+                  </apx-chart>
+              </div>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>

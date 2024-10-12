@@ -1,0 +1,95 @@
+<!-- Cardiomegaly ile ilgili bilgiler -->
+<div class="row">
+    <div class="col-12">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Cardiomegaly: Temel Bilgiler</mat-card-title>
+                <mat-list role="list">
+                    <mat-list-item role="listitem">Cardiomegaly, kalbin anormal derecede büyümesi durumudur.</mat-list-item>
+                    <mat-list-item role="listitem">Genellikle semptomlara yol açmayabilir, ancak ciddi vakalarda nefes darlığı, ödem ve diğer belirtiler görülebilir.</mat-list-item>
+                    <mat-list-item role="listitem">Cardiomegaly tedavi edilmezse, kalp yetmezliği gibi ciddi komplikasyonlara yol açabilir.</mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+<!-- Cardiomegaly: Semptomlar ve Tedavi -->
+<div class="row">
+    <div class="col-lg-6">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Cardiomegaly: Semptomlar</mat-card-title>
+                <mat-card-subtitle>Cardiomegaly, kalbin anormal büyümesi durumudur.</mat-card-subtitle>
+                <mat-list>
+                    <mat-list-item *ngFor="let symptom of cardiomegalySymptoms">
+                        {{symptom}}
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-6">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Cardiomegaly: Tedavi Seçenekleri</mat-card-title>
+                <mat-card-subtitle>Cardiomegaly tedavisi, semptomlara ve altta yatan nedenlere bağlı olarak değişiklik gösterebilir.</mat-card-subtitle>
+                <mat-list>
+                    <mat-list-item *ngFor="let treatment of cardiomegalyTreatments">
+                        <h3 matListItemTitle>{{treatment.name}}</h3>
+                        <p matListItemLine>{{treatment.description}}</p>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+<!-- İlgilenen Branşlar -->
+<div class="row">
+    <div class="col-12">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Cardiomegaly ile İlgilenen Branşlar</mat-card-title>
+                <mat-card-subtitle>Cardiomegaly tanısı ve yönetimi için çeşitli tıp branşları devreye girebilir.</mat-card-subtitle>
+                <mat-list>
+                    <mat-list-item *ngFor="let specialty of medicalSpecialties">
+                        <div matListItemTitle>{{specialty}}</div>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+<!-- Hastalık İstatistikleri -->
+<div class="row">
+    <div class="col-12">
+        <mat-card>
+            <mat-card-content>
+                <div class="d-flex flex-wrap">
+                    <div>
+                        <mat-card-title>Hastalık İstatistikleri</mat-card-title>
+                        <mat-card-subtitle>Cardiomegaly Hastalığı Üzerine Veriler</mat-card-subtitle>
+                    </div>
+                </div>
+                <div>
+                    <apx-chart
+                        [series]="chartOptions.series"
+                        [chart]="chartOptions.chart"
+                        [dataLabels]="chartOptions.dataLabels"
+                        [plotOptions]="chartOptions.plotOptions"
+                        [yaxis]="chartOptions.yaxis"
+                        [legend]="chartOptions.legend"
+                        [fill]="chartOptions.fill"
+                        [stroke]="chartOptions.stroke"
+                        [tooltip]="chartOptions.tooltip"
+                        [xaxis]="chartOptions.xaxis"
+                        [grid]="chartOptions.grid"
+                    >
+                    </apx-chart>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

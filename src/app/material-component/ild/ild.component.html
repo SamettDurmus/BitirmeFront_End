@@ -1,0 +1,102 @@
+<!-- ============================================================== -->
+<!-- Interstisyel Akciğer Hastalığı ile ilgili bilgiler -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-12">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Interstisyel Akciğer Hastalığı (ILD): Temel Bilgiler</mat-card-title>
+                <mat-list role="list">
+                    <mat-list-item role="listitem">ILD, akciğer dokusunu etkileyen bir grup hastalığın genel adıdır.</mat-list-item>
+                    <mat-list-item role="listitem">Hastalık, akciğer dokusundaki fibrozis (skarlaşma) veya iltihaplanma gibi değişikliklerle karakterizedir.</mat-list-item>
+                    <mat-list-item role="listitem">ILD semptomları arasında nefes darlığı, kuru öksürük, halsizlik ve kilo kaybı yer alabilir.</mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Interstisyel Akciğer Hastalığı: Semptomlar ve Tedavi -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-lg-6">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Interstisyel Akciğer Hastalığı: Semptomlar</mat-card-title>
+                <mat-card-subtitle>ILD, akciğer dokusunu etkileyen bir grup hastalığın genel adıdır.</mat-card-subtitle>
+                <mat-list>
+                    <mat-list-item *ngFor="let symptom of ildSymptoms">
+                        {{symptom}}
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-6">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Interstisyel Akciğer Hastalığı: Tedavi Seçenekleri</mat-card-title>
+                <mat-card-subtitle>ILD tedavisi, hastalığın tipine, şiddetine ve semptomlara bağlı olarak değişiklik gösterebilir.</mat-card-subtitle>
+                <mat-list>
+                    <mat-list-item *ngFor="let treatment of ildTreatments">
+                        <h3 matListItemTitle>{{treatment.name}}</h3>
+                        <p matListItemLine>{{treatment.description}}</p>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Hangi Branşlar İlgilenir? -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-12">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Interstisyel Akciğer Hastalığı ile İlgilenen Branşlar</mat-card-title>
+                <mat-card-subtitle>ILD teşhisi, tedavisi ve takibi için çeşitli tıp branşları devreye girebilir.</mat-card-subtitle>
+                <mat-list>
+                    <mat-list-item *ngFor="let specialty of medicalSpecialties">
+                        <div matListItemTitle>{{specialty}}</div>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <mat-card>
+            <mat-card-content>
+                <div class="d-flex flex-wrap">
+                    <div>
+                        <mat-card-title>Hastalık İstatistikleri</mat-card-title>
+                        <mat-card-subtitle>ILD Hastalığı Üzerine Veriler</mat-card-subtitle>
+                    </div>
+                </div>
+                <style>
+                    .list-inline h6 {
+                        font-size: 0.8em; /* Yazı boyutunu küçültmek için */
+                    }
+                </style>
+                <div>
+                    <apx-chart
+                        [series]="chartOptions.series"
+                        [chart]="chartOptions.chart"
+                        [dataLabels]="chartOptions.dataLabels"
+                        [plotOptions]="chartOptions.plotOptions"
+                        [yaxis]="chartOptions.yaxis"
+                        [legend]="chartOptions.legend"
+                        [fill]="chartOptions.fill"
+                        [stroke]="chartOptions.stroke"
+                        [tooltip]="chartOptions.tooltip"
+                        [xaxis]="chartOptions.xaxis"
+                        [grid]="chartOptions.grid"
+                    >
+                    </apx-chart>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

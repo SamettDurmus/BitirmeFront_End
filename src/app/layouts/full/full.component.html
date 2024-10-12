@@ -1,0 +1,92 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div class="main-container"> 
+    <!-- ============================================================== -->
+    <!-- Topbar - style you can find in header.scss -->
+    <!-- ============================================================== -->
+    <mat-toolbar style="color: white; background-color: #2AB3A6; " class="topbar telative">
+        <!-- ============================================================== -->
+        <!-- Logo - style you can find in header.scss -->
+        <!-- ============================================================== -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+                <!-- Logo icon --><b>
+                    <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                    <!-- Dark Logo icon -->
+                    
+                </b>
+                <!--End Logo icon -->
+                <!-- Logo text -->
+                <span class="text-logo-icon" fxShow="false" fxShow.gt-xs>
+                    <!-- Metni ekliyoruz -->
+                    <span class="text">Gel Kendin Öğren</span>
+                </span> </a>
+        </div>
+        <!-- ============================================================== -->
+        <!-- sidebar toggle -->
+        <!-- ============================================================== -->
+        
+        <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <!-- ============================================================== -->
+        <!-- app header component - style you can find in header.scss / header.component.ts-->
+        <!-- ============================================================== -->
+        <app-header class="d-flex align-items-center ml-auto"></app-header>
+    </mat-toolbar>
+    <!-- ============================================================== -->
+    <!-- End Topbar - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
+        <!-- ============================================================== -->
+        <!-- Sidebar - style you can find in sidebar.scss -->
+        <!-- ============================================================== -->
+        <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches"  >
+            
+                <app-sidebar></app-sidebar>
+               
+            
+        </mat-sidenav>
+        <!-- ============================================================== -->
+        <!-- Sidebar - style you can find in sidebar.scss -->
+        <!-- ============================================================== -->
+        
+        <!-- ============================================================== -->
+        <!-- Page container - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <mat-sidenav-content class="page-wrapper">
+                 
+                <div class="page-content">
+                   
+                        <router-outlet><app-spinner></app-spinner></router-outlet>
+                    
+                </div>    
+                <style>
+                    footer {
+                        background-color: #333;
+                        color: white;
+                        text-align: center;
+                        padding: 10px 0;
+                      }
+                      
+                      footer p {
+                        margin: 5px 0;
+                      }
+                </style>
+                <footer>
+                    <div class="container">
+                        <p>Adres: Gazi Üniversitesi Yenimahalle/Ankara</p>
+                        <p>Telefon: +90 (312) 000 00 00</p>
+                        <p>&copy; 2024 Gel Sonucunu Öğren. Tüm hakları saklıdır.</p>
+                    </div>
+                </footer>
+        </mat-sidenav-content>
+        
+        <!-- ============================================================== -->
+        <!-- Page container - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+    </mat-sidenav-container>
+
+    
+</div>

@@ -1,0 +1,102 @@
+<!-- ============================================================== -->
+<!-- İnfiltrasyon ile ilgili bilgiler -->
+<!-- ============================================================== -->
+<div class="row">
+  <div class="col-12">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>İnfiltrasyon: Temel Bilgiler</mat-card-title>
+              <mat-list role="list">
+                  <mat-list-item role="listitem">İnfiltrasyon, akciğerlerdeki hava veya sıvı ile değiştirilmiş normal dokuların varlığını ifade eder.</mat-list-item>
+                  <mat-list-item role="listitem">Hava, kan, yağ, su veya diğer maddeler infiltrasyon nedeniyle akciğer dokusunda birikmiş olabilir.</mat-list-item>
+                  <mat-list-item role="listitem">İnfiltrasyon semptomları arasında nefes darlığı, öksürük, hırıltılı solunum, ateş ve göğüs ağrısı bulunabilir.</mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+<!-- ============================================================== -->
+<!-- İnfiltrasyon: Semptomlar ve Tedavi -->
+<!-- ============================================================== -->
+<div class="row">
+  <div class="col-lg-6">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>İnfiltrasyon: Semptomlar</mat-card-title>
+              <mat-card-subtitle>İnfiltrasyon, akciğerlerdeki hava veya sıvı ile değiştirilmiş normal dokuların varlığını ifade eder.</mat-card-subtitle>
+              <mat-list>
+                  <mat-list-item *ngFor="let symptom of infiltrationSymptoms">
+                      {{symptom}}
+                  </mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+  <div class="col-lg-6">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>İnfiltrasyon: Tedavi Seçenekleri</mat-card-title>
+              <mat-card-subtitle>İnfiltrasyon tedavisi, altta yatan nedenin belirlenmesine ve uygun tedaviye dayanır.</mat-card-subtitle>
+              <mat-list>
+                  <mat-list-item *ngFor="let treatment of infiltrationTreatments">
+                      <h3 matListItemTitle>{{treatment.name}}</h3>
+                      <p matListItemLine>{{treatment.description}}</p>
+                  </mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+<!-- ============================================================== -->
+<!-- Hangi Branşlar İlgilenir? -->
+<!-- ============================================================== -->
+<div class="row">
+  <div class="col-12">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>İnfiltrasyon ile İlgilenen Branşlar</mat-card-title>
+              <mat-card-subtitle>İnfiltrasyon teşhisi, tedavisi ve takibi için çeşitli tıp branşları devreye girebilir.</mat-card-subtitle>
+              <mat-list>
+                  <mat-list-item *ngFor="let specialty of medicalSpecialties">
+                      <div matListItemTitle>{{specialty}}</div>
+                  </mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+      <mat-card>
+          <mat-card-content>
+              <div class="d-flex flex-wrap">
+                  <div>
+                      <mat-card-title>Hastalık İstatistikleri</mat-card-title>
+                      <mat-card-subtitle>İnfiltrasyon Hastalığı Üzerine Veriler</mat-card-subtitle>
+                  </div>
+              </div>
+              <style>
+                  .list-inline h6 {
+                      font-size: 0.8em; /* Yazı boyutunu küçültmek için */
+                  }
+              </style>
+              <div>
+                  <apx-chart
+                      [series]="chartOptions.series"
+                      [chart]="chartOptions.chart"
+                      [dataLabels]="chartOptions.dataLabels"
+                      [plotOptions]="chartOptions.plotOptions"
+                      [yaxis]="chartOptions.yaxis"
+                      [legend]="chartOptions.legend"
+                      [fill]="chartOptions.fill"
+                      [stroke]="chartOptions.stroke"
+                      [tooltip]="chartOptions.tooltip"
+                      [xaxis]="chartOptions.xaxis"
+                      [grid]="chartOptions.grid"
+                  >
+                  </apx-chart>
+              </div>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>

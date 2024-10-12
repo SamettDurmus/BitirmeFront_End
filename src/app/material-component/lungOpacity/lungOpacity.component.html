@@ -1,0 +1,102 @@
+<!-- ============================================================== -->
+<!-- Akciğer Opasitesi ile ilgili bilgiler -->
+<!-- ============================================================== -->
+<div class="row">
+  <div class="col-12">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>Akciğer Opasitesi: Temel Bilgiler</mat-card-title>
+              <mat-list role="list">
+                  <mat-list-item role="listitem">Akciğer opasitesi, akciğerlerin görüntülenmesinde anormal opaklık veya bulanıklık olarak tanımlanan bir durumdur.</mat-list-item>
+                  <mat-list-item role="listitem">Opasite, hava, sıvı veya katı maddelerin akciğer dokusunda birikmesi sonucu oluşabilir.</mat-list-item>
+                  <mat-list-item role="listitem">Opasite genellikle röntgen veya bilgisayarlı tomografi (BT) taramaları sırasında tespit edilir.</mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+<!-- ============================================================== -->
+<!-- Akciğer Opasitesi: Semptomlar ve Tedavi -->
+<!-- ============================================================== -->
+<div class="row">
+  <div class="col-lg-6">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>Akciğer Opasitesi: Semptomlar</mat-card-title>
+              <mat-card-subtitle>Akciğer opasitesi, akciğerlerin görüntülenmesinde anormal opaklık veya bulanıklık olarak tanımlanan bir durumdur.</mat-card-subtitle>
+              <mat-list>
+                  <mat-list-item *ngFor="let symptom of lungOpacitySymptoms">
+                      {{symptom}}
+                  </mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+  <div class="col-lg-6">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>Akciğer Opasitesi: Tedavi Seçenekleri</mat-card-title>
+              <mat-card-subtitle>Akciğer opasitesi tedavisi, altta yatan nedenin belirlenmesine ve uygun tedaviye dayanır.</mat-card-subtitle>
+              <mat-list>
+                  <mat-list-item *ngFor="let treatment of lungOpacityTreatments">
+                      <h3 matListItemTitle>{{treatment.name}}</h3>
+                      <p matListItemLine>{{treatment.description}}</p>
+                  </mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+<!-- ============================================================== -->
+<!-- Hangi Branşlar İlgilenir? -->
+<!-- ============================================================== -->
+<div class="row">
+  <div class="col-12">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>Akciğer Opasitesi ile İlgilenen Branşlar</mat-card-title>
+              <mat-card-subtitle>Akciğer opasitesi teşhisi, tedavisi ve takibi için çeşitli tıp branşları devreye girebilir.</mat-card-subtitle>
+              <mat-list>
+                  <mat-list-item *ngFor="let specialty of medicalSpecialties">
+                      <div matListItemTitle>{{specialty}}</div>
+                  </mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+      <mat-card>
+          <mat-card-content>
+              <div class="d-flex flex-wrap">
+                  <div>
+                      <mat-card-title>Hastalık İstatistikleri</mat-card-title>
+                      <mat-card-subtitle>Akciğer Opasitesi Hastalığı Üzerine Veriler</mat-card-subtitle>
+                  </div>
+              </div>
+              <style>
+                  .list-inline h6 {
+                      font-size: 0.8em; /* Yazı boyutunu küçültmek için */
+                  }
+              </style>
+              <div>
+                  <apx-chart
+                      [series]="chartOptions.series"
+                      [chart]="chartOptions.chart"
+                      [dataLabels]="chartOptions.dataLabels"
+                      [plotOptions]="chartOptions.plotOptions"
+                      [yaxis]="chartOptions.yaxis"
+                      [legend]="chartOptions.legend"
+                      [fill]="chartOptions.fill"
+                      [stroke]="chartOptions.stroke"
+                      [tooltip]="chartOptions.tooltip"
+                      [xaxis]="chartOptions.xaxis"
+                      [grid]="chartOptions.grid"
+                  >
+                  </apx-chart>
+              </div>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>

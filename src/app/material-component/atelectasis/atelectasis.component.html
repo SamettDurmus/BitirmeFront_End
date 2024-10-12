@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-12">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>Atelektazi: Temel Bilgiler</mat-card-title>
+              <mat-list role="list">
+                  <mat-list-item role="listitem">Atelektazi, bir akciğerin kısmen veya tamamen havalanmaması durumudur.</mat-list-item>
+                  <mat-list-item role="listitem">Genellikle nefes alma güçlüğü, öksürük ve göğüs ağrısı gibi belirtiler gösterir.</mat-list-item>
+                  <mat-list-item role="listitem">Tedavi edilmezse, atelektazi akciğer fonksiyonlarını olumsuz yönde etkileyebilir ve ciddi komplikasyonlara yol açabilir.</mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>Atelektazi: Belirtiler</mat-card-title>
+              <mat-card-subtitle>Atelektazi belirtileri genellikle şunları içerir:</mat-card-subtitle>
+              <mat-list>
+                  <mat-list-item *ngFor="let symptom of atelectasisSymptoms">
+                      {{symptom}}
+                  </mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+  <div class="col-lg-6">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>Atelektazi: Tedavi Seçenekleri</mat-card-title>
+              <mat-card-subtitle>Atelektazi tedavisi, hastalığın nedenine ve şiddetine bağlı olarak değişebilir:</mat-card-subtitle>
+              <mat-list>
+                  <mat-list-item *ngFor="let treatment of atelectasisTreatments">
+                      <h3 matListItemTitle>{{treatment.name}}</h3>
+                      <p matListItemLine>{{treatment.description}}</p>
+                  </mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>Atelektazi ile İlgilenen Branşlar</mat-card-title>
+              <mat-card-subtitle>Atelektazi teşhisi, tedavisi ve takibi için şu tıp branşları devreye girebilir:</mat-card-subtitle>
+              <mat-list>
+                  <mat-list-item *ngFor="let specialty of medicalSpecialties">
+                      <div matListItemTitle>{{specialty}}</div>
+                  </mat-list-item>
+              </mat-list>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+      <mat-card>
+          <mat-card-content>
+              <div class="d-flex flex-wrap">
+                  <div>
+                      <mat-card-title>Hastalık İstatistikleri</mat-card-title>
+                      <mat-card-subtitle>Atelektazi Hastalığı Üzerine Veriler</mat-card-subtitle>
+                  </div>
+              </div>
+              <div>
+                  <apx-chart
+                      [series]="chartOptions.series"
+                      [chart]="chartOptions.chart"
+                      [dataLabels]="chartOptions.dataLabels"
+                      [plotOptions]="chartOptions.plotOptions"
+                      [yaxis]="chartOptions.yaxis"
+                      [legend]="chartOptions.legend"
+                      [fill]="chartOptions.fill"
+                      [stroke]="chartOptions.stroke"
+                      [tooltip]="chartOptions.tooltip"
+                      [xaxis]="chartOptions.xaxis"
+                      [grid]="chartOptions.grid"
+                  >
+                  </apx-chart>
+              </div>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
